@@ -1,12 +1,13 @@
 header {
     display: flex;
     justify-content: center;
-    background-color: #304285;
+    background-color: #5D5DFD;
 }
 
 body {
     margin: auto 0;
     overflow-x: hidden;
+    padding-bottom: 50px;
 }
 
 
@@ -47,22 +48,19 @@ h2 {
 
 .simulation {
     padding-top: 20px;
-    padding-bottom: 205px;
 }
 
 .about, .purpose, .simulation {
-    background-color: #CBD2ED;
+    background-color: #FFFFFF;
     padding-left: 20%;
     padding-right: 20%;
-    height: 100%;
+    
 }
 
 .textinput {
     width: 100%;
     min-height: 100px;
     resize: none;
-    border: 1px solid #304285;
+    border: 1px solid #5D5DFD;
 }
-
-
 
