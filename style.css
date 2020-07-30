@@ -2,23 +2,21 @@ header {
     display: flex;
     justify-content: center;
     background-color: #304285;
-    
 }
 
 body {
     margin: auto 0;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 
 h1 {
     color: white;
+    text-align: center;
 }
 
 h2 {
-    border-bottom:2px solid black;
-    width: 100px;
-    text-align: center;
+    text-align: left;
 }
 
 .container {
@@ -28,16 +26,35 @@ h2 {
     justify-content: center;
     height: 100%;
     max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.space {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.about {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.purpose {
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .simulation {
-    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 205px;
 }
 
 .about, .purpose, .simulation {
     background-color: #CBD2ED;
     padding-left: 20%;
     padding-right: 20%;
+    height: 100%;
 }
 
 .textinput {
@@ -46,5 +63,6 @@ h2 {
     resize: none;
     border: 1px solid #304285;
 }
+
 
 
