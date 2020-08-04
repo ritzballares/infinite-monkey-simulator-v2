@@ -6,7 +6,8 @@ According to Wikipedia ([more information in the Wikipedia page here](https://en
 ## Purpose
 The goal of this project is to determine how long it would take for the "monkey" to reproduce any given text.
 
-## Technologies used
+## Technologies used/learned
 - HTML
 - CSS
 - Bootstrap
+- JavaScript
