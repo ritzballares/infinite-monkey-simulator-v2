@@ -9,6 +9,49 @@ const generateLetter = (char, charArray) => {
     return letter;
 };
 
+const finishSimulation = (totalTime) => {
+    // TO-DO:
+    // After simulation, 
+    // - replace GIF in modal with totalTime
+    setTimeout(function() {
+        replaceModalContent(totalTime);
+    }, 3000);
+    // - replace title with "Success!"
+    // - uncomment close buttons
+    // - reset everything when user clicks on close button
+
+
+}
+
+const replaceModalContent = (totalTime) => {
+    // ------------- modal header -------------------
+    // New node
+    let modalHeader = document.createElement('h5');
+    modalHeader.id = "modalHeaderId"
+    let modalHeaderContent = document.createTextNode("Success!");
+    modalHeader.appendChild(modalHeaderContent);
+
+    // Existing node
+    let existingHeaderContent = document.getElementById("userPrompt");
+    let headerParentDiv = existingHeaderContent.parentNode;
+
+    // Replace header content
+    headerParentDiv.replaceChild(modalHeaderContent, existingHeaderContent);
+
+    // -------------- modal body --------------------
+    // New node
+    let spTotalTime = document.createElement("span");
+    spTotalTime.id = "monkeyTotalTime";
+    let spTotalTimeContent = document.createTextNode("It took " + totalTime + " ms to reproduce the provided text.");
+    spTotalTime.appendChild(spTotalTimeContent);
+
+    // Existing node
+    let gifFrame = document.getElementById("gifFrame");
+    let parentDiv = gifFrame.parentNode;
+
+    // Replace content
+    parentDiv.replaceChild(spTotalTimeContent, gifFrame);
+}
 
 const startSimulation = (charArray, input) => {
     // toggle modal
@@ -31,15 +74,7 @@ const startSimulation = (charArray, input) => {
     let t1 = performance.now();
     let totalTime = t1 - t0;
 
-    // console.log(sentence);
-    // console.log(`It took ${totalTime} ms`);
-
-    // TO-DO:
-    // After simulation, 
-    // - replace GIF in modal with totalTime 
-    // - replace title with "Success!"
-    // - uncomment close buttons
-    // - clear text field
+    finishSimulation(totalTime);
 }
 
 
