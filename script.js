@@ -10,17 +10,9 @@ const generateLetter = (char, charArray) => {
 };
 
 const finishSimulation = (totalTime) => {
-    // TO-DO:
-    // After simulation, 
-    // - replace GIF in modal with totalTime
     setTimeout(function() {
         replaceModalContent(totalTime);
-    }, 3000);
-    // - replace title with "Success!"
-    // - uncomment close buttons
-    // - reset everything when user clicks on close button
-
-
+    }, totalTime + 3000);
 }
 
 const replaceModalContent = (totalTime) => {
@@ -36,21 +28,74 @@ const replaceModalContent = (totalTime) => {
     let headerParentDiv = existingHeaderContent.parentNode;
 
     // Replace header content
-    headerParentDiv.replaceChild(modalHeaderContent, existingHeaderContent);
+    headerParentDiv.replaceChild(modalHeader, existingHeaderContent);
 
     // -------------- modal body --------------------
     // New node
-    let spTotalTime = document.createElement("span");
-    spTotalTime.id = "monkeyTotalTime";
+    let spTotalTime = document.createElement("p");
     let spTotalTimeContent = document.createTextNode("It took " + totalTime + " ms to reproduce the provided text.");
     spTotalTime.appendChild(spTotalTimeContent);
+
+    let spTotalTimeDiv = document.createElement("div");
+    spTotalTimeDiv.id = "spTotalTime";
+
+    spTotalTimeDiv.appendChild(spTotalTime);
 
     // Existing node
     let gifFrame = document.getElementById("gifFrame");
     let parentDiv = gifFrame.parentNode;
 
     // Replace content
-    parentDiv.replaceChild(spTotalTimeContent, gifFrame);
+    parentDiv.replaceChild(spTotalTimeDiv, gifFrame);
+
+    //--------------- close button ----------------------
+    // Show close button
+    let closeButton = document.getElementById('closeButton');
+    closeButton.innerHTML = closeButton.innerHTML.replace('<!--','').replace('-->','');
+}
+
+const resetContent = () => {
+    // Reset textfield
+    document.getElementById('inputText').value = '';
+
+    // Reset modal content
+    // ------------- modal header -------------------
+    // New node
+    let modalHeader = document.createElement('h5');
+    modalHeader.id = "userPrompt";
+    modalHeader.className = "modal-title";
+    let modalHeaderContent = document.createTextNode("Please wait while the monkey is typing... ");
+    modalHeader.appendChild(modalHeaderContent);
+
+    // Existing node
+    let existingHeaderContent = document.getElementById("modalHeaderId");
+    let headerParentDiv = existingHeaderContent.parentNode;
+
+    // Replace header content
+    headerParentDiv.replaceChild(modalHeader, existingHeaderContent);
+
+    // -------------- modal body --------------------
+    // New iframe node
+    let gifContent = document.createElement("iframe");
+    gifContent.src = "https://giphy.com/embed/l0HU7GmObZ2BtYZvW";
+    gifContent.width = "100%";
+    gifContent.height= "100%";
+    gifContent.style = "position:absolute";
+    gifContent.frameBorder = "0";
+    gifContent.className = "giphy-embed";
+    gifContent.setAttribute('allowFullScreen', '');
+
+    let gifDiv = document.createElement("div");
+    gifDiv.id = "gifFrame";
+    gifDiv.style = "width:100%;height:0;padding-bottom:100%;position:relative;"
+
+    gifDiv.appendChild(gifContent);
+
+    // Existing node
+    let existingModalBodyContent = document.getElementById("spTotalTime");
+    let existingModalBodyContentParent = existingModalBodyContent.parentNode;
+
+    existingModalBodyContentParent.replaceChild(gifDiv, existingModalBodyContent);
 }
 
 const startSimulation = (charArray, input) => {

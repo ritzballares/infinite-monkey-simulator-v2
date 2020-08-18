@@ -59,7 +59,7 @@
                                 <h5 class="modal-title" id="userPrompt">Please wait while the monkey is typing...
                                 </h5>
                             </div>
-                            <div class="modal-body">
+                            <div id="modal-body" class="modal-body">
                                 <div id="gifFrame" style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe
                                         src="https://giphy.com/embed/l0HU7GmObZ2BtYZvW" width="100%" height="100%"
                                         style="position:absolute" frameBorder="0" class="giphy-embed"
@@ -67,7 +67,9 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                                <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                                <div id="closeButton">
+                                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick="resetContent()">Close</button> -->
+                                </div>
                             </div>
                         </div>
                     </div>
